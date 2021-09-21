@@ -7,7 +7,7 @@ trigger:
 - main
 
 pool:
-  vmImage: ubuntu-latest
+  vmImage: debian-latest
 
 variables:
   phpVersion: 7.3
