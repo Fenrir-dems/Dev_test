@@ -11,7 +11,7 @@ trigger:
 
 variables:
   phpVersion: 7.3
-  path: C:\wamp64\www
+#  path: C:\wamp64\www
 
 steps:
 - script: |
