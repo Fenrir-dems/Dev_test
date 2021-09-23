@@ -25,7 +25,8 @@ steps:
   displayName: 'Use PHP version $(phpVersion)'
 
 - task: npm@1
-  inputs: 
+  inputs:
+    workingDir: .\
     Command: install
 
 - script: composer install --no-interaction --prefer-dist
