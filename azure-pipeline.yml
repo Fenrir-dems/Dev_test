@@ -4,10 +4,10 @@
 # https://docs.microsoft.com/azure/devops/pipelines/languages/php
 
 trigger:
-- Develop
+- main
 
-pool:
-  vmImage: ubuntu-latest
+# pool:
+#  vmImage: ubuntu-latest
 
 variables:
   phpVersion: 7.3
