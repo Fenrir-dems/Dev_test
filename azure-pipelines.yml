@@ -10,7 +10,7 @@ trigger:
 #  vmImage: ubuntu-latest
 
 variables:
-  archives_path: 'C:\wamp64\www'
+  archives_path: 'C:\wamp64\www\'
   phpVersion: 7.3
 
 steps:
@@ -31,13 +31,13 @@ steps:
     rootFolderOrFile: '$(path)'
     includeRootFolder: false
     archiveType: 'zip'
-    archiveFile: '$(path)\test\testarchive.zip'
+    archiveFile: '$(path)test\testarchive.zip'
     replaceExistingArchive: true
     verbose: true
 
 - task: ExtractFiles@1
   inputs:
-    archiveFilePatterns: 'test-dev/$(path)\test\testarchive.zip'
-    destinationFolder: '$(path)\test-dev'
+    archiveFilePatterns: 'test-dev/$(path)test\testarchive.zip'
+    destinationFolder: '$(path)test-dev'
     cleanDestinationFolder: true
     overwriteExistingFiles: true
