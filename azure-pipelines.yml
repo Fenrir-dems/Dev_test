@@ -12,7 +12,6 @@ trigger:
 variables:
 #  archives_path: 'C:\wamp64\www\'
   phpVersion: 7.3
-  npmVersion: 6.14
 
 steps:
 - script: |
