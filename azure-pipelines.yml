@@ -28,7 +28,7 @@ steps:
 
 - task: ArchiveFiles@2
   inputs:
-    rootFolderOrFile: 'C:\wamp64\www\test'
+    rootFolderOrFile: 'C:\wamp64\www\main'
     includeRootFolder: true
     archiveType: 'zip'
     archiveFile: 'testarchive.zip'
@@ -38,6 +38,6 @@ steps:
 - task: ExtractFiles@1
   inputs:
     archiveFilePatterns: 'testarchive.zip'
-    destinationFolder: 'C:\wamp64\www\test-dev'
+    destinationFolder: 'C:\wamp64\www\develop'
     cleanDestinationFolder: true
     overwriteExistingFiles: true
