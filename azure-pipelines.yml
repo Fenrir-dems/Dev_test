@@ -10,7 +10,7 @@ trigger:
 #  vmImage: ubuntu-latest
 
 variables:
-  path: C:\wamp64\www
+  path: 'C:\wamp64\www'
   phpVersion: 7.3
 
 steps:
