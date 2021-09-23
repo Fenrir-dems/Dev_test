@@ -23,21 +23,21 @@ steps:
     php -version
   displayName: 'Use PHP version $(phpVersion)'
 
-- script: composer install --no-interaction --prefer-dist
-  displayName: 'composer install'
+#- script: composer install --no-interaction --prefer-dist
+#  displayName: 'composer install'
 
 - task: ArchiveFiles@2
   inputs:
-    rootFolderOrFile: 'C:\wamp64\www'
-    includeRootFolder: false
+    rootFolderOrFile: '$(Build.SourcesDirectory)'
+    includeRootFolder: true
     archiveType: 'zip'
-    archiveFile: 'C:\wamp64\www\test\testarchive.zip'
+    archiveFile: 'testarchive.zip'
     replaceExistingArchive: true
     verbose: true
 
 - task: ExtractFiles@1
   inputs:
-    archiveFilePatterns: 'test-dev/C:\wamp64\www\test\testarchive.zip'
+    archiveFilePatterns: 'testarchive.zip'
     destinationFolder: 'C:\wamp64\www\test-dev'
     cleanDestinationFolder: true
     overwriteExistingFiles: true
