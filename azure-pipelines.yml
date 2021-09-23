@@ -28,7 +28,7 @@ steps:
 
 - task: ArchiveFiles@2
   inputs:
-    rootFolderOrFile: '$(Build.SourcesDirectory)'
+    rootFolderOrFile: 'C:\wamp64\www\test'
     includeRootFolder: true
     archiveType: 'zip'
     archiveFile: 'testarchive.zip'
