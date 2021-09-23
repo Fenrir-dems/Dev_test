@@ -11,6 +11,7 @@ trigger:
 
 variables:
   phpVersion: 7.3
+  path: C:\wamp64\www
 
 steps:
 - script: |
@@ -27,16 +28,16 @@ steps:
 
 - task: ArchiveFiles@2
   inputs:
-    rootFolderOrFile: 'C:\wamp64\www'
+    rootFolderOrFile: '$(path)'
     includeRootFolder: false
     archiveType: 'zip'
-    archiveFile: 'C:\wamp64\www\test\testarchive.zip'
+    archiveFile: '$(path)\test\testarchive.zip'
     replaceExistingArchive: true
     verbose: true
 
 - task: ExtractFiles@1
   inputs:
-    archiveFilePatterns: 'test-dev/testarchive.zip'
-    destinationFolder: 'C:\wamp64\www'
+    archiveFilePatterns: 'test-dev/$(path)\test\testarchive.zip'
+    destinationFolder: '$(path)\test-dev'
     cleanDestinationFolder: true
     overwriteExistingFiles: true
