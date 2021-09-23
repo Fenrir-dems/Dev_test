@@ -31,7 +31,7 @@ steps:
     rootFolderOrFile: 'C:\wamp64\www\develop\main'
     includeRootFolder: true
     archiveType: 'zip'
-    archiveFile: 'testarchive.zip'
+    archiveFile: 'C:\wamp64\www\testarchive.zip'
     replaceExistingArchive: true
     verbose: true
 
