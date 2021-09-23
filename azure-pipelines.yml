@@ -30,6 +30,13 @@ steps:
     rootFolderOrFile: 'C:\wamp64\www\test'
     includeRootFolder: false
     archiveType: 'zip'
-    archiveFile: 'C:\wamp64\www\testarchive.zip'
+    archiveFile: 'C:\wamp64\www\test\testarchive.zip'
     replaceExistingArchive: true
     verbose: true
+
+- task: ExtractFiles@1
+  inputs:
+    archiveFilePatterns: '**/*.zip'
+    destinationFolder: 'C:\wamp64\www\test-dev'
+    cleanDestinationFolder: true
+    overwriteExistingFiles: true
