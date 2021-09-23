@@ -30,6 +30,6 @@ steps:
     rootFolderOrFile: 'C:\wamp64\www\test'
     includeRootFolder: false
     archiveType: 'zip'
-    archiveFile: 'testarchive/C:\wamp64\www\test.zip'
+    archiveFile: 'C:\wamp64\www\testarchive.zip'
     replaceExistingArchive: true
     verbose: true
