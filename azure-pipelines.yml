@@ -24,9 +24,9 @@ steps:
     php -version
   displayName: 'Use PHP version $(phpVersion)'
 
-- task: Npm@1
-  inputs:
-    command: 'install'
+- task: npm@1
+  inputs: 
+    Command: install
 
 - script: composer install --no-interaction --prefer-dist
   displayName: 'composer install'
