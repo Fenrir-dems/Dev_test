@@ -27,8 +27,7 @@ steps:
 - task: npm@1
   inputs:
    Command: install
-   workingDir: C:\agents\_work\1\s
-    
+   workingDir: C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Node.js
 
 - script: composer install --no-interaction --prefer-dist
   displayName: 'composer install'
@@ -52,4 +51,3 @@ steps:
     destinationFolder: 'C:\wamp64\www'
     cleanDestinationFolder: false
     overwriteExistingFiles: true
-
