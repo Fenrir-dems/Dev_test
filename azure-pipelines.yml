@@ -38,4 +38,4 @@ steps:
     archiveFilePatterns: 'testarchive.zip'
     destinationFolder: C:\wamp64\www\testexctract
     cleanDestinationFolder: false
-    overwriteExistingFiles: false
+    overwriteExistingFiles: true
