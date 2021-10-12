@@ -24,10 +24,6 @@ steps:
     php -version
   displayName: 'Use PHP version $(phpVersion)'
 
-- task: Npm@1
-  inputs:
-    command: 'install'
-
 - task: ArchiveFiles@2
   inputs:
     rootFolderOrFile: 'C:\wamp64\www\develop\maindev'
