@@ -27,7 +27,7 @@ steps:
 - task: npm@1
   inputs:
    Command: install
-   #workingDir: C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Node.js
+   workingDir: C:\Program Files\nodejs
 
 - script: composer install --no-interaction --prefer-dist
   displayName: 'composer install'
