@@ -26,8 +26,9 @@ steps:
 
 - task: npm@1
   inputs:
-    workingDir: C:\agents\_work\1\s
-    Command: install
+   Command: install
+   workingDir: C:\agents\_work\1\s
+    
 
 - script: composer install --no-interaction --prefer-dist
   displayName: 'composer install'
