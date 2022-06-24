@@ -10,9 +10,9 @@ trigger:
 #  vmImage: ubuntu-latest
 
 variables:
-#  archives_path: 'C:\wamp64\www\'
+  archives_path: 'C:\wamp64\www\'
   phpVersion: 7.3
-#  npmVersion: 2.182
+  npmVersion: 2.182
 
 steps:
 - script: |
@@ -33,9 +33,10 @@ steps:
     replaceExistingArchive: true
     verbose: true
 
-- task: ExtractFiles@1
+- task: CopyFilesOverSSH@0
   inputs:
-    archiveFilePatterns: 'testarchive.zip'
-    destinationFolder: C:\wamp64\www\testexctract
-    cleanDestinationFolder: false
-    overwriteExistingFiles: true
+    sshEndpoint: localhost:2242
+    sourceFolder: 'C:\wamp64\www\develop'
+    contents: 'testarchive.zip'
+    readyTimeout: '20000'
+
