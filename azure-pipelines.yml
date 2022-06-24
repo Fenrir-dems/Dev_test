@@ -4,13 +4,15 @@
 # https://docs.microsoft.com/azure/devops/pipelines/languages/php
 
 trigger:
-- main
+- Develop
 
-# pool:
+#pool:
 #  vmImage: ubuntu-latest
 
 variables:
+  archives_path: 'C:\wamp64\www\'
   phpVersion: 7.3
+  npmVersion: 2.182
 
 steps:
 - script: |
@@ -22,5 +24,37 @@ steps:
     php -version
   displayName: 'Use PHP version $(phpVersion)'
 
-- script: composer install --no-interaction --prefer-dist
-  displayName: 'composer install'
+- task: Composer@1
+  inputs:
+   command: 'install'
+
+- task: Npm@1
+  inputs:
+    command: 'install'
+
+- task: Npm@2
+  inputs:
+    command: 'run prod'
+
+- task: ArchiveFiles@2
+  inputs:
+    rootFolderOrFile: 'C:\wamp64\www\develop'
+    includeRootFolder: true
+    archiveType: 'tar'
+    archiveFile: 'testarchive.tar.gz'
+    replaceExistingArchive: true
+    verbose: true
+
+- task: CopyFilesOverSSH@0
+  inputs:
+    sshEndpoint: Remote-server
+    contents: '*testarchive.tar.gz*'
+    readyTimeout: '20000'
+
+- task: SSH@0
+  inputs:
+    sshEndpoint: Remote-server
+    runOptions: 'commands'
+    commands: 'tar –xvzf testarchive.gz'
+    readyTimeout: '20000'
+
