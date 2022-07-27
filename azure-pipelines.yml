@@ -43,13 +43,13 @@ steps:
   inputs:
     rootFolderOrFile: $
     includeRootFolder: false
-    archiveType: zip
+    archiveType: tar
     archiveFile: $(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip
     replaceExistingArchive: true
 
 - task: CopyFilesOverSSH@0
   inputs:
-    sshEndpoint: Remote-server
+    sshEndpoint: '80.92.87.58'
     contents: '*testarchive.tar.gz*'
     readyTimeout: '20000'
 
