@@ -50,7 +50,7 @@ steps:
 - task: CopyFilesOverSSH@0
   inputs:
     sshEndpoint: '80.92.87.58'
-    contents: '*testarchive.tar.gz*'
+    contents: 'testarchive.tar.gz'
     readyTimeout: '20000'
 
 - task: SSH@0
