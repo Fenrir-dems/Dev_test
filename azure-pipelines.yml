@@ -24,26 +24,28 @@ steps:
     php -version
   displayName: 'Use PHP version $(phpVersion)'
 
-- task: Composer@1
-  inputs:
-   command: 'install'
+- script: composer install --no-intercation --prefer-dist
+  workingDirectory: $
+  displayName: 'composer install'
 
 - task: Npm@1
   inputs:
     command: 'install'
 
-- task: Npm@2
+- task: Npm@1
   inputs:
-    command: 'run prod'
+    command: 'custom'
+    workingDir: $
+    customCommand: 'run prod'
 
 - task: ArchiveFiles@2
+  displayName: 'Archive files'
   inputs:
-    rootFolderOrFile: 'C:\wamp64\www\develop'
-    includeRootFolder: true
-    archiveType: 'tar'
-    archiveFile: 'testarchive.tar.gz'
+    rootFolderOrFile: $
+    includeRootFolder: false
+    archiveType: zip
+    archiveFile: $(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip
     replaceExistingArchive: true
-    verbose: true
 
 - task: CopyFilesOverSSH@0
   inputs:
@@ -57,4 +59,3 @@ steps:
     runOptions: 'commands'
     commands: 'tar –xvzf testarchive.gz'
     readyTimeout: '20000'
-
