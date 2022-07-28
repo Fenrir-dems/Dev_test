@@ -36,7 +36,7 @@ steps:
   inputs:
     command: 'custom'
     workingDir: $
-    customCommand: 'run prod'
+    customCommand: 'run dev'
 
 - task: ArchiveFiles@2
   displayName: 'Archive files'
