@@ -10,7 +10,7 @@ steps:
         Write-Host ' - - - - - - - - - - - - - - - - - - - - - - - - - '
         $stageDir = '$(Build.SourcesDirectory)' | Split-Path
         $githubDir = $stageDir +"\"+"gitHub"
-        $destination = $githubDir +"\"+"PHP PROJECT.git"
+        $destination = $githubDir +"\"+"PHP%20PROJECT.git"
         Write-Host "destination => $destination & githubdir => $githubDir"
         #please provide your username
         $alias = 'Fenrir-dems:'+ "$(Github.PAT)"
