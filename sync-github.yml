@@ -9,44 +9,45 @@ steps:
         Write-Host ' - - - - - - - - - - - - - - - - - - - - - - - - -'
         Write-Host ' reflect Azure Devops repo changes to GitHub repo'
         Write-Host ' - - - - - - - - - - - - - - - - - - - - - - - - - '
+        
         $stageDir = '$(Build.SourcesDirectory)' | Split-Path
         $githubDir = $stageDir +"\"+"gitHub"
         $destination = $githubDir +"\"+"PHP%20PROJECT.git"
-        Write-Host "destination => $destination & githubdir => $githubDir"
         #please provide your username
         $alias = 'Fenrir-dems:'+ "$(Github.PAT)"
         #Please make sure, you remove https from azure-repo-clone-url
         $sourceURL = 'https://$(AzureDevOps.PAT)@dev.azure.com/DevTest4368/_git/PHP%20PROJECT'
         #Please make sure, you remove https from github-repo-clone-url
         $destURL = 'https://' + $alias + '@github.com/Fenrir-dems/Dev_test'
+
         #Check if the parent directory exists and delete
         if((Test-Path -path $githubDir))
-        {
-          Remove-Item -Path $githubDir -Recurse -force
-        }
+            {
+            Remove-Item -Path $githubDir -Recurse -force
+            }
         if(!(Test-Path -path $githubDir))
-        {
-          New-Item -ItemType directory -Path $githubDir
-          Set-Location $githubDir
-          git clone --mirror $sourceURL
-        }
+            {
+            New-Item -ItemType directory -Path $githubDir
+            Set-Location $githubDir
+            git clone --mirror $sourceURL
+            }
         else
-        {
-          Write-Host "The given folder path $githubDir already exists";
-        }
+            {
+            Write-Host "The given folder path $githubDir already exists";
+            }
+
         Set-Location $destination
         Write-Output '*****Git removing remote secondary****'
-        git remote rm secondary
+        git remote rm github
         Write-Output '*****Git remote add****'
-        git remote add --mirror=fetch secondary $destURL
+        git remote add --mirror=fetch github $destURL
         Write-Output '*****Git fetch origin****'
         git fetch $sourceURL
-        Write-Output '*****Git push secondary****'
-        git fetch --all
-        git push secondary --all
+        Write-Output '*****Git push****'
+        git push github
         Write-Output '**Azure Devops repo synced with Github repo**'
         Set-Location $stageDir
         if((Test-Path -path $githubDir))
-        {
-         Remove-Item -Path $githubDir -Recurse -force
-        }
+            {
+            Remove-Item -Path $githubDir -Recurse -force
+            }
