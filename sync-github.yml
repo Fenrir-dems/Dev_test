@@ -42,6 +42,7 @@ steps:
         Write-Output '*****Git fetch origin****'
         git fetch $sourceURL
         Write-Output '*****Git push secondary****'
+        git fetch --all
         git push secondary --all
         Write-Output '**Azure Devops repo synced with Github repo**'
         Set-Location $stageDir
