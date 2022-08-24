@@ -45,3 +45,7 @@
       {
        Remove-Item -Path $githubDir -Recurse -force
       }
+    warningPreference: 'continue'
+    informationPreference: 'continue'
+    verbosePreference: 'continue'
+    showWarnings: true
