@@ -15,7 +15,7 @@ steps:
         #please provide your username
         $alias = 'Fenrir-dems:'+ "$(Github.PAT)"
         #Please make sure, you remove https from azure-repo-clone-url
-        $sourceURL = 'https://$(AzureDevOps.PAT)@github.com/Fenrir-dems/Dev_test'
+        $sourceURL = 'https://$(AzureDevOps.PAT)@dev.azure.com/DevTest4368/_git/PHP%20PROJECT'
         #Please make sure, you remove https from github-repo-clone-url
         $destURL = 'https://' + $alias + '@github.com/Fenrir-dems/Dev_test'
         #Check if the parent directory exists and delete
