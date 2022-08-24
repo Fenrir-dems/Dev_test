@@ -10,7 +10,8 @@ steps:
         Write-Host ' - - - - - - - - - - - - - - - - - - - - - - - - - '
         $stageDir = '$(Build.SourcesDirectory)' | Split-Path
         $githubDir = $stageDir +"\"+"gitHub"
-        $destination = $githubDir +"\"+"Dev_test.git"
+        $destination = $githubDir +"\"+"PHP PROJECT.git"
+        Write-Host "destination => $destination & githubdir => $githubDir"
         #please provide your username
         $alias = 'Fenrir-dems:'+ "$(Github.PAT)"
         #Please make sure, you remove https from azure-repo-clone-url
