@@ -3,6 +3,7 @@ steps:
   - task: PowerShell@2
     inputs:
       targetType: 'inline'
+      ignoreLASTEXITCODE: true
       script: |
         # Write your PowerShell commands here.
         Write-Host ' - - - - - - - - - - - - - - - - - - - - - - - - -'
